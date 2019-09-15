@@ -1,7 +1,9 @@
 Repositorio para la documentación de proyectos de
 6609/8607 Laboratorio de Microcontroladores
 
-¡Completar!
+Cabeza, Manuel 101627
+Charrut, Matías -
+Itzcovitz, Axel -
 
-Integrantes (quiénes integran el grupo de trabajo)
+A decidir proyecto.
 Proyecto (nombre) y breve descripción (3 párrafos)
