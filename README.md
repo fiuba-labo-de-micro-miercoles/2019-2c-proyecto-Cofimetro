@@ -3,7 +3,7 @@ Repositorio para la documentación de proyectos de
 
 Cabeza, Manuel 101627
 Charrut, Matías -
-Itzcovitz, Axel -
+Itzcovitz, Axel - 100742
 
 A decidir proyecto.
 Proyecto (nombre) y breve descripción (3 párrafos)
