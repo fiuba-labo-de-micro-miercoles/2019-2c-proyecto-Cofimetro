@@ -1,28 +1,31 @@
 .include "m328pdef.inc"
 
-;Cosas para mas adelante:
-;-cargar desde RAM convirtiendo numeros a ASCII
+;FALTA: -hacer nueva funcion que permita escribir en la posicion que se quiera (usando MOVE_TO)
 
 ;pines
-.EQU D4 = 0
-.EQU D5 = 1
-.EQU D6 = 2
-.EQU D7 = 3
-.EQU ENABLE = 4
-.EQU RS = 5
+.EQU D4 = 0 ;LSB de comunicacion de datos (se usa en modo 4 bits)
+.EQU D5 = 1 ;
+.EQU D6 = 2	;
+.EQU D7 = 3 ;MSB de comunicacion de datos
+.EQU ENABLE = 4 ;pin de enable
+.EQU RS = 5 ;pin de RS
+
 
 ;comandos
-.EQU SET_8BITS_LONG = 0x03
-.EQU SET_4BITS_LONG = 0x02
-.EQU FUNCTION_SET = 0x2C
-.EQU SET_DISPLAY = 0x0C
-.EQU CLEAN_DISPLAY = 0x01
-.EQU ENTRY_MODE = 0x06
-.EQU NEXT_LINE = 0xC0
+.EQU SET_8BITS_LONG = 0x03 ;comando para configurar modo de 8 bits
+.EQU SET_4BITS_LONG = 0x02 ;comando para configurar modo de 4 bits
+.EQU FUNCTION_SET = 0x2C ;comando para configurar numero de lineas, etc
+.EQU SET_DISPLAY = 0x0C ;comando para configurar el display
+.EQU CLEAN_DISPLAY = 0x01 ;comando para limpiar el display
+.EQU ENTRY_MODE = 0x06 ;comando para configurar cursor,etc 
+.EQU NEXT_LINE = 0x40 ;posicion ddram de la primera posicion de segunda linea
+.EQU MOVE_DDRAM = 0x80 ;comando para cambiar posicion ddram
 
 ;mascaras
 .EQU MASK_4LSB = 0x0F
 .EQU MASK_MSB = 0x80
+
+
 
 
 
@@ -61,26 +64,42 @@ ENTER_WRITE_ROM:
 
 END_WRITE_ROM:
 	;termina la macro
+
+.ENDM
+
+.MACRO WRITE_FROM_RAM ;macro para cargar desde la ram, se le pasa una posicion
+	LDI ZL, LOW(@0)
+	LDI ZH, HIGH(@0)
+	LDI R21, 15 ; cargo el contador de linea
+FOR_WRITE_RAM:
+	LPM R20, Z+ ; cargo el caracter  desde la ram
+	CPI R20, 0 ; veo si es fin de texto
+	BREQ END_WRITE_RAM ; si es el final me voy de la macro
+	CALL WRITE_4BITS_CHARACTER ;escribo
+	CPI R21, 0 ;veo si terminó la linea
+	BREQ ENTER_WRITE_RAM ; si termino la linea me muevo a la otra
+	DEC R21 ;decremento el contador de linea
+	RJMP FOR_WRITE_RAM
+
+ENTER_WRITE_RAM:
+	MOVE_TO NEXT_LINE
+	LDI R21, 15
+	RJMP FOR_WRITE_RAM
+
+END_WRITE_RAM:
+	;termina la macro
 	
 .ENDM
 
 .MACRO MOVE_TO ;macro para mover el cursor del LCD
-	LDI R20, @0
-	CALL WRITE_4BITS_INSTRUCTION
+	LDI R20, @0 ;cargo la posicion a la que me quiero mover
+	ORI R20, MOVE_DDRAM ;agrego el bit MSB = 1 para el comando
+	CALL WRITE_4BITS_INSTRUCTION ;llamo a mandar instruccion
 .ENDM
 
 
-.CSEG
-	RJMP MAIN
 
-.ORG INT_VECTORS_SIZE
-MAIN: ;main de prueba
-	CALL CONFIGURATION 
-	WRITE_FROM_ROM TEXTO
-HERE:
-	RJMP HERE
-
-CONFIGURATION:
+CONFIGURATION_LCD:
 	;configuro DDRB como salida
 	LDI R16, 0x3F
 	OUT DDRB, R16
@@ -144,6 +163,8 @@ SET_RS: ; seteo la salida de RS
 	OUT PORTB, R16
 	RET
 
+
+
 WRITE_8BITS:
 	;recibe en R20 lo que se quiere escribir, solo se usa para configurar el LCD
 	CALL SET_ENABLE ; seteo enable
@@ -184,7 +205,7 @@ WRITE_4BITS_INSTRUCTION:
 WRITE_4BITS_CHARACTER:
 	;recibe en R20 lo que se quiere escribir
 	CALL SET_ENABLE;desactivo enable
-	CALL SET_RS ;limpio RS(instruccion)
+	CALL SET_RS ;activo RS (escribo datos)
 	IN R16, PORTB
 	MOV R17, R20 ;copio R20 a R17
 	SWAP R17
@@ -222,17 +243,9 @@ PUSH_EVERYTHING:
 	RET
 
 POP_EVERYTHING:
-	POP R16
-	POP R17
-	POP R18
-	POP R20
 	POP R21
+	POP R20
+	POP R19
+	POP R18
+	POP R16
 	RET
-
-
-
-
-TEXTO: .DB "Soy un display LCD de 16x2", '\0'
-
-
-	
