@@ -1,0 +1,630 @@
+EESchema Schematic File Version 4
+LIBS:Arduino_Uno_R3_From_Scratch-cache
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 13 13
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Device:R R3
+U 1 1 5DCE9E97
+P 4500 2900
+F 0 "R3" H 4600 2950 50  0000 L CNN
+F 1 "47k" H 4600 2850 50  0000 L CNN
+F 2 "" V 4430 2900 50  0001 C CNN
+F 3 "~" H 4500 2900 50  0001 C CNN
+	1    4500 2900
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R4
+U 1 1 5DCE9E9D
+P 4500 3300
+F 0 "R4" H 4600 3350 50  0000 L CNN
+F 1 "10k" H 4600 3250 50  0000 L CNN
+F 2 "" V 4430 3300 50  0001 C CNN
+F 3 "~" H 4500 3300 50  0001 C CNN
+	1    4500 3300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R5
+U 1 1 5DCE9EA3
+P 4950 3100
+F 0 "R5" V 4743 3100 50  0000 C CNN
+F 1 "15k" V 4835 3100 50  0000 C CNN
+F 2 "" V 4880 3100 50  0001 C CNN
+F 3 "~" H 4950 3100 50  0001 C CNN
+	1    4950 3100
+	0    1    1    0   
+$EndComp
+$Comp
+L basico:GND #PWR08
+U 1 1 5DCE9EAF
+P 5850 2900
+F 0 "#PWR08" H 5850 2650 50  0001 C CNN
+F 1 "GND" H 5855 2727 50  0001 C CNN
+F 2 "" H 5850 2900 50  0000 C CNN
+F 3 "" H 5850 2900 50  0000 C CNN
+	1    5850 2900
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Variable 47k
+U 1 1 5DCE9EB5
+P 5550 2750
+F 0 "47k" V 5650 2650 50  0000 C CNN
+F 1 "R_Var" V 5396 2750 50  0000 C CNN
+F 2 "" V 5480 2750 50  0001 C CNN
+F 3 "~" H 5550 2750 50  0001 C CNN
+	1    5550 2750
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:Transformer_1P_1S_SO8 T1
+U 1 1 5DCE9EBE
+P 3700 3050
+F 0 "T1" H 3700 3450 50  0000 C CNN
+F 1 "220-18" H 3700 3350 50  0000 C CNN
+F 2 "" H 3700 3050 50  0001 C CNN
+F 3 "~" H 3700 3050 50  0001 C CNN
+	1    3700 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L basico:GND #PWR03
+U 1 1 5DCE9EC4
+P 4200 3550
+F 0 "#PWR03" H 4200 3300 50  0001 C CNN
+F 1 "GND" H 4205 3377 50  0001 C CNN
+F 2 "" H 4200 3550 50  0000 C CNN
+F 3 "" H 4200 3550 50  0000 C CNN
+	1    4200 3550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5700 2750 5750 2750
+Wire Wire Line
+	5750 2750 5750 3100
+Connection ~ 5750 3100
+Wire Wire Line
+	5750 3100 5850 3100
+$Comp
+L basico:+5V #PWR05
+U 1 1 5DCE9ED4
+P 5300 2550
+F 0 "#PWR05" H 5300 2400 50  0001 C CNN
+F 1 "+5V" H 5315 2723 50  0000 C CNN
+F 2 "" H 5300 2550 50  0000 C CNN
+F 3 "" H 5300 2550 50  0000 C CNN
+	1    5300 2550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5400 2750 5300 2750
+$Comp
+L Device:R R7
+U 1 1 5DCE9EDB
+P 6100 2750
+F 0 "R7" V 6307 2750 50  0000 C CNN
+F 1 "8.2k" V 6215 2750 50  0000 C CNN
+F 2 "" V 6030 2750 50  0001 C CNN
+F 3 "~" H 6100 2750 50  0001 C CNN
+	1    6100 2750
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R10
+U 1 1 5DCE9EE1
+P 6800 3000
+F 0 "R10" V 6900 3050 50  0000 R CNN
+F 1 "10k" V 7000 3050 50  0000 R CNN
+F 2 "" V 6730 3000 50  0001 C CNN
+F 3 "~" H 6800 3000 50  0001 C CNN
+	1    6800 3000
+	0    1    1    0   
+$EndComp
+$Comp
+L basico:GND #PWR011
+U 1 1 5DCE9EE7
+P 7250 2900
+F 0 "#PWR011" H 7250 2650 50  0001 C CNN
+F 1 "GND" H 7255 2727 50  0001 C CNN
+F 2 "" H 7250 2900 50  0000 C CNN
+F 3 "" H 7250 2900 50  0000 C CNN
+	1    7250 2900
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R8
+U 1 1 5DCE9EED
+P 7550 2700
+F 0 "R8" V 7350 2700 50  0000 C CNN
+F 1 "10k" V 7435 2700 50  0000 C CNN
+F 2 "" V 7480 2700 50  0001 C CNN
+F 3 "~" H 7550 2700 50  0001 C CNN
+	1    7550 2700
+	0    1    1    0   
+$EndComp
+$Comp
+L basico:+5V #PWR012
+U 1 1 5DCE9EF3
+P 6450 2100
+F 0 "#PWR012" H 6450 1950 50  0001 C CNN
+F 1 "+5V" H 6465 2273 50  0000 C CNN
+F 2 "" H 6450 2100 50  0000 C CNN
+F 3 "" H 6450 2100 50  0000 C CNN
+	1    6450 2100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5950 2750 5750 2750
+Connection ~ 5750 2750
+Wire Wire Line
+	6250 2750 6450 2750
+$Comp
+L Amplifier_Operational:LM358 OA-1
+U 2 1 5DCE9F08
+P 7550 3000
+F 0 "OA-1" H 7550 3000 50  0000 C CNN
+F 1 "LM358" H 7200 2650 50  0001 C CNN
+F 2 "" H 7550 3000 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 7550 3000 50  0001 C CNN
+	2    7550 3000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R6
+U 1 1 5DCE9F10
+P 8150 3000
+F 0 "R6" V 8350 3050 50  0000 R CNN
+F 1 "2.2" V 8250 3050 50  0000 R CNN
+F 2 "" V 8080 3000 50  0001 C CNN
+F 3 "~" H 8150 3000 50  0001 C CNN
+	1    8150 3000
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:C C1
+U 1 1 5DCE9F17
+P 8400 3200
+F 0 "C1" H 8150 3150 50  0000 L CNN
+F 1 "100n" H 8100 3250 50  0000 L CNN
+F 2 "" H 8438 3050 50  0001 C CNN
+F 3 "~" H 8400 3200 50  0001 C CNN
+	1    8400 3200
+	1    0    0    -1  
+$EndComp
+$Comp
+L basico:GND #PWR06
+U 1 1 5DCE9F1D
+P 8400 3350
+F 0 "#PWR06" H 8400 3100 50  0001 C CNN
+F 1 "GND" V 8405 3222 50  0001 R CNN
+F 2 "" H 8400 3350 50  0000 C CNN
+F 3 "" H 8400 3350 50  0000 C CNN
+	1    8400 3350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Comparator:LM393 C-1
+U 1 1 5DCE9F23
+P 9000 3000
+F 0 "C-1" H 8950 3000 50  0000 C CNN
+F 1 "LM393" H 9200 3200 50  0000 C CNN
+F 2 "" H 9000 3000 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/lm393-n.pdf" H 9000 3000 50  0001 C CNN
+	1    9000 3000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R1
+U 1 1 5DCE9F29
+P 8450 3750
+F 0 "R1" V 8550 3800 50  0000 R CNN
+F 1 "22k" V 8650 3800 50  0000 R CNN
+F 2 "" V 8380 3750 50  0001 C CNN
+F 3 "~" H 8450 3750 50  0001 C CNN
+	1    8450 3750
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R2
+U 1 1 5DCE9F2F
+P 8750 3750
+F 0 "R2" V 8850 3800 50  0000 R CNN
+F 1 "22k" V 8950 3800 50  0000 R CNN
+F 2 "" V 8680 3750 50  0001 C CNN
+F 3 "~" H 8750 3750 50  0001 C CNN
+	1    8750 3750
+	0    1    1    0   
+$EndComp
+$Comp
+L basico:+5V #PWR01
+U 1 1 5DCE9F36
+P 8200 3750
+F 0 "#PWR01" H 8200 3600 50  0001 C CNN
+F 1 "+5V" H 8215 3923 50  0000 C CNN
+F 2 "" H 8200 3750 50  0000 C CNN
+F 3 "" H 8200 3750 50  0000 C CNN
+	1    8200 3750
+	1    0    0    -1  
+$EndComp
+$Comp
+L basico:GND #PWR02
+U 1 1 5DCE9F3C
+P 8900 3750
+F 0 "#PWR02" H 8900 3500 50  0001 C CNN
+F 1 "GND" V 8905 3622 50  0001 R CNN
+F 2 "" H 8900 3750 50  0000 C CNN
+F 3 "" H 8900 3750 50  0000 C CNN
+	1    8900 3750
+	1    0    0    -1  
+$EndComp
+$Comp
+L basico:+5V #PWR04
+U 1 1 5DCE9F42
+P 8650 2100
+F 0 "#PWR04" H 8650 1950 50  0001 C CNN
+F 1 "+5V" H 8665 2273 50  0000 C CNN
+F 2 "" H 8650 2100 50  0000 C CNN
+F 3 "" H 8650 2100 50  0000 C CNN
+	1    8650 2100
+	1    0    0    -1  
+$EndComp
+$Comp
+L basico:+5V #PWR010
+U 1 1 5DCE9F48
+P 9250 2600
+F 0 "#PWR010" H 9250 2450 50  0001 C CNN
+F 1 "+5V" H 9265 2773 50  0000 C CNN
+F 2 "" H 9250 2600 50  0000 C CNN
+F 3 "" H 9250 2600 50  0000 C CNN
+	1    9250 2600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R9
+U 1 1 5DCE9F4E
+P 9450 2850
+F 0 "R9" H 9380 2804 50  0001 R CNN
+F 1 "22k" H 9380 2850 50  0000 R CNN
+F 2 "" V 9380 2850 50  0001 C CNN
+F 3 "~" H 9450 2850 50  0001 C CNN
+	1    9450 2850
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	6450 2750 6450 3000
+$Comp
+L Amplifier_Operational:LM358 OA-1
+U 1 1 5DCE9F59
+P 6150 3000
+F 0 "OA-1" H 6100 3000 50  0000 C CNN
+F 1 "LM358" H 6150 2800 50  0000 C CNN
+F 2 "" H 6150 3000 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 6150 3000 50  0001 C CNN
+	1    6150 3000
+	1    0    0    -1  
+$EndComp
+$Comp
+L basico:GND #PWR09
+U 1 1 5DCE9F62
+P 9250 2100
+F 0 "#PWR09" H 9250 1850 50  0001 C CNN
+F 1 "GND" H 9255 1927 50  0001 C CNN
+F 2 "" H 9250 2100 50  0000 C CNN
+F 3 "" H 9250 2100 50  0000 C CNN
+	1    9250 2100
+	1    0    0    -1  
+$EndComp
+Text HLabel 8400 2350 0    50   Output ~ 0
+muestra_v
+Text HLabel 4000 3550 0    50   BiDi ~ 0
+GND
+$Comp
+L Sensor_Current:ACS712xLCTR-05B U1
+U 1 1 5DCF2462
+P 3050 5100
+F 0 "U1" H 2550 4600 50  0000 C CNN
+F 1 "ACS712" H 2650 4700 50  0000 C CNN
+F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 3150 4750 50  0001 L CIN
+F 3 "http://www.allegromicro.com/~/media/Files/Datasheets/ACS712-Datasheet.ashx?la=en" H 3050 5100 50  0001 C CNN
+	1    3050 5100
+	1    0    0    -1  
+$EndComp
+Text HLabel 9700 3000 2    50   Output ~ 0
+ceros_V
+Wire Wire Line
+	4000 2850 4000 2650
+Wire Wire Line
+	4500 2650 4500 2750
+Wire Wire Line
+	4500 3450 4500 3550
+Wire Wire Line
+	4500 3550 4200 3550
+Wire Wire Line
+	4000 3550 4000 3250
+Wire Wire Line
+	4800 3100 4500 3100
+Wire Wire Line
+	4500 3100 4500 3050
+Wire Wire Line
+	4500 3150 4500 3100
+Connection ~ 4500 3100
+Wire Wire Line
+	5100 3100 5750 3100
+Wire Wire Line
+	6450 3000 6650 3000
+Connection ~ 6450 3000
+Wire Wire Line
+	6950 3000 7100 3000
+Wire Wire Line
+	7100 3000 7100 3100
+Wire Wire Line
+	7100 3100 7250 3100
+Wire Wire Line
+	7100 3000 7100 2700
+Wire Wire Line
+	7100 2700 7400 2700
+Connection ~ 7100 3000
+Wire Wire Line
+	7700 2700 7900 2700
+Wire Wire Line
+	7900 2700 7900 3000
+Wire Wire Line
+	7900 3000 7850 3000
+Wire Wire Line
+	8000 3000 7900 3000
+Connection ~ 7900 3000
+Wire Wire Line
+	8300 3000 8400 3000
+Wire Wire Line
+	8400 3000 8400 3050
+$Comp
+L Comparator:LM393 U1
+U 3 1 5DCE9F68
+P 8950 2000
+F 0 "U1" V 9045 2000 50  0001 C CNN
+F 1 "LM393" V 8953 2000 50  0000 C CNN
+F 2 "" H 8950 2000 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/lm393-n.pdf" H 8950 2000 50  0001 C CNN
+	3    8950 2000
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	8400 3000 8600 3000
+Wire Wire Line
+	8600 3000 8600 2900
+Wire Wire Line
+	8600 2900 8700 2900
+Connection ~ 8400 3000
+Wire Wire Line
+	8700 3100 8600 3100
+Wire Wire Line
+	8600 3100 8600 3750
+Connection ~ 8600 3750
+$Comp
+L power:-5V #PWR07
+U 1 1 5DCE9EF9
+P 5850 2100
+F 0 "#PWR07" H 5850 2200 50  0001 C CNN
+F 1 "-5V" H 5865 2273 50  0000 C CNN
+F 2 "" H 5850 2100 50  0001 C CNN
+F 3 "" H 5850 2100 50  0001 C CNN
+	1    5850 2100
+	1    0    0    -1  
+$EndComp
+$Comp
+L Amplifier_Operational:LM358 U2
+U 3 1 5DCE9EA9
+P 6150 2200
+F 0 "U2" V 5825 2200 50  0001 C CNN
+F 1 "LM358" V 5917 2200 50  0000 C CNN
+F 2 "" H 6150 2200 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 6150 2200 50  0001 C CNN
+	3    6150 2200
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	8400 3000 8400 2350
+Wire Wire Line
+	9250 2600 9450 2600
+Wire Wire Line
+	9450 2600 9450 2700
+Wire Wire Line
+	9450 3000 9300 3000
+Wire Wire Line
+	9450 3000 9700 3000
+Connection ~ 9450 3000
+Wire Wire Line
+	5300 2550 5300 2750
+Connection ~ 4200 3550
+Wire Wire Line
+	4200 3550 4000 3550
+Wire Wire Line
+	8300 3750 8200 3750
+Text Notes 5750 3350 0    50   ~ 0
+Sumador de tension\n
+Text Notes 7300 3350 0    50   ~ 0
+Inversor\n
+Text Notes 7500 2300 0    50   ~ 0
+Tension a muestrear \n(0-5V)
+Text Notes 9300 3150 0    50   ~ 0
+Salida para calcular desfasaje
+Text Notes 7950 4100 0    50   ~ 0
+Tension 2.5 V para el comparador\n
+Wire Wire Line
+	2950 2600 2950 3250
+Wire Wire Line
+	4000 2650 4500 2650
+Wire Wire Line
+	2450 2800 2450 2850
+Wire Wire Line
+	1700 3350 2450 3350
+Wire Wire Line
+	1700 2600 2950 2600
+Connection ~ 1700 2600
+Wire Wire Line
+	1650 2600 1700 2600
+Wire Wire Line
+	1700 2800 2450 2800
+Text Notes 900  2300 0    50   ~ 0
+Aca se conecta la carga\nEj. Un caloventor\n
+$Comp
+L Connector:Conn_WallPlug E1
+U 1 1 5DCD5721
+P 1500 3450
+F 0 "E1" H 1517 3775 50  0000 C CNN
+F 1 "Enchufe_220" H 1517 3684 50  0000 C CNN
+F 2 "" H 1900 3450 50  0001 C CNN
+F 3 "~" H 1900 3450 50  0001 C CNN
+	1    1500 3450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_WallSocket E2
+U 1 1 5DCD19BD
+P 1500 2700
+F 0 "E2" H 1456 2375 50  0000 C CNN
+F 1 "Toma_220" H 1456 2466 50  0000 C CNN
+F 2 "" H 1100 2700 50  0001 C CNN
+F 3 "~" H 1100 2700 50  0001 C CNN
+	1    1500 2700
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	2450 2850 3400 2850
+Connection ~ 2450 2850
+Wire Wire Line
+	2450 2850 2450 3350
+Wire Wire Line
+	3400 3250 2950 3250
+Connection ~ 2950 3250
+Wire Wire Line
+	2950 3250 2950 3550
+Wire Wire Line
+	2400 3550 2950 3550
+Wire Wire Line
+	2150 3550 1700 3550
+$Comp
+L Arduino_Uno_R3_From_Scratch-cache-2019-11-09-15-37-54:C C2
+U 1 1 5DD5630D
+P 3700 5350
+F 0 "C2" H 3500 5400 50  0000 L CNN
+F 1 "1n" H 3500 5300 50  0000 L CNN
+F 2 "" H 3738 5200 30  0000 C CNN
+F 3 "" H 3700 5350 60  0000 C CNN
+	1    3700 5350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3450 5200 3700 5200
+Wire Wire Line
+	3700 5500 3300 5500
+$Comp
+L Arduino_Uno_R3_From_Scratch-cache-2019-11-09-15-37-54:GND #PWR?
+U 1 1 5DD5B3DF
+P 3300 5500
+F 0 "#PWR?" H 3300 5250 50  0001 C CNN
+F 1 "GND" H 3305 5327 50  0000 C CNN
+F 2 "" H 3300 5500 60  0000 C CNN
+F 3 "" H 3300 5500 60  0000 C CNN
+	1    3300 5500
+	1    0    0    -1  
+$EndComp
+Connection ~ 3300 5500
+Wire Wire Line
+	3300 5500 3050 5500
+$Comp
+L Arduino_Uno_R3_From_Scratch-cache-2019-11-09-15-37-54:C C1
+U 1 1 5DD5D58D
+P 4350 5100
+F 0 "C1" H 4465 5146 50  0000 L CNN
+F 1 "100n" H 4465 5055 50  0000 L CNN
+F 2 "" H 4388 4950 30  0000 C CNN
+F 3 "" H 4350 5100 60  0000 C CNN
+	1    4350 5100
+	1    0    0    -1  
+$EndComp
+$Comp
+L Arduino_Uno_R3_From_Scratch-cache-2019-11-09-15-37-54:R R1
+U 1 1 5DD5E394
+P 4000 4850
+F 0 "R1" H 4070 4896 50  0000 L CNN
+F 1 "1k" H 4070 4805 50  0000 L CNN
+F 2 "" V 3930 4850 30  0000 C CNN
+F 3 "" H 4000 4850 30  0000 C CNN
+	1    4000 4850
+	1    0    0    -1  
+$EndComp
+Connection ~ 4000 4700
+$Comp
+L Arduino_Uno_R3_From_Scratch-cache-2019-11-09-15-37-54:LED D1
+U 1 1 5DD6359C
+P 4000 5300
+F 0 "D1" V 4046 5192 50  0000 R CNN
+F 1 "LED" V 3955 5192 50  0000 R CNN
+F 2 "" H 4000 5300 60  0000 C CNN
+F 3 "" H 4000 5300 60  0000 C CNN
+	1    4000 5300
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	4350 4700 4350 4950
+Wire Wire Line
+	4000 4700 4350 4700
+Wire Wire Line
+	4350 5250 4350 5500
+Wire Wire Line
+	4350 5500 4000 5500
+Connection ~ 4000 5500
+Wire Wire Line
+	4000 5100 4000 5000
+$Comp
+L basico:+5V #PWR?
+U 1 1 5DD6973F
+P 4350 4700
+F 0 "#PWR?" H 4350 4550 50  0001 C CNN
+F 1 "+5V" H 4365 4873 50  0000 C CNN
+F 2 "" H 4350 4700 50  0000 C CNN
+F 3 "" H 4350 4700 50  0000 C CNN
+	1    4350 4700
+	1    0    0    -1  
+$EndComp
+Connection ~ 4350 4700
+Text HLabel 3450 5100 2    50   Input ~ 0
+muestreo_i
+Wire Wire Line
+	3700 5500 4000 5500
+Connection ~ 3700 5500
+Wire Wire Line
+	3050 4700 4000 4700
+Wire Wire Line
+	2650 4900 2400 4900
+Wire Wire Line
+	2150 5300 2650 5300
+Wire Wire Line
+	2150 3550 2150 5300
+Wire Wire Line
+	2400 3550 2400 4900
+Wire Notes Line
+	1850 4250 1850 5850
+Wire Notes Line
+	1850 5850 4750 5850
+Wire Notes Line
+	4750 5850 4750 4250
+Wire Notes Line
+	4750 4250 1850 4250
+Text Notes 2650 4400 0    50   ~ 0
+Sensor ASC-712 para medicion de corriente\n
+$EndSCHEMATC
