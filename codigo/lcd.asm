@@ -20,6 +20,8 @@
 .EQU ENTRY_MODE = 0x06 ;comando para configurar cursor,etc 
 .EQU NEXT_LINE = 0x40 ;posicion ddram de la primera posicion de segunda linea
 .EQU MOVE_DDRAM = 0x80 ;comando para cambiar posicion ddram
+.EQU INICIO_LCD = 0x00
+.EQU FIN_V_LCD = 5
 
 ;mascaras
 .EQU MASK_4LSB = 0x0F
@@ -43,29 +45,32 @@ FOR_2:
 	RJMP FOR_1
 .ENDM
 
-.MACRO WRITE_FROM_ROM ;macro para cargar desde la rom, se le pasa una posicion
-	LDI ZL, LOW(@0<<1)
-	LDI ZH, HIGH(@0<<1)
-	LDI R21, 15 ; cargo el contador de linea
-FOR_WRITE_ROM:
-	LPM R20, Z+ ; cargo el caracter  desde la rom
-	CPI R20, 0 ; veo si es fin de texto
-	BREQ END_WRITE_ROM ; si es el final me voy de la macro
-	CALL WRITE_4BITS_CHARACTER ;escribo
-	CPI R21, 0 ;veo si terminó la linea
-	BREQ ENTER_WRITE_ROM ; si termino la linea me muevo a la otra
-	DEC R21 ;decremento el contador de linea
-	RJMP FOR_WRITE_ROM
+;.MACRO WRITE_FROM_ROM ;macro para cargar desde la rom, se le pasa una posicion
+;	;LDI ZL, LOW(@0<<1)
+;	;LDI ZH, HIGH(@0<<1)
+;	MOV ZL, R16
+;	MOV ZH, R17
+;	LDI R21, 15 ; cargo el contador de linea
+;FOR_WRITE_ROM:
+;	LPM R20, Z+ ; cargo el caracter  desde la rom
+;	CPI R20, 0 ; veo si es fin de texto
+;	BREQ END_WRITE_ROM ; si es el final me voy de la macro
+;	CALL WRITE_4BITS_CHARACTER ;escribo
+;	CPI R21, 0 ;veo si terminó la linea
+;	BREQ ENTER_WRITE_ROM ; si termino la linea me muevo a la otra
+;	DEC R21 ;decremento el contador de linea
+;	RJMP FOR_WRITE_ROM
 
-ENTER_WRITE_ROM:
-	MOVE_TO NEXT_LINE
-	LDI R21, 15
-	RJMP FOR_WRITE_ROM
+;ENTER_WRITE_ROM:
+;	MOVE_TO NEXT_LINE
+;	LDI R21, 15
+;	RJMP FOR_WRITE_ROM
 
-END_WRITE_ROM:
+;END_WRITE_ROM:
 	;termina la macro
 
-.ENDM
+;.ENDM
+
 
 .MACRO WRITE_FROM_RAM ;macro para cargar desde la ram, se le pasa una posicion
 	LDI ZL, LOW(@0)
@@ -91,11 +96,7 @@ END_WRITE_RAM:
 	
 .ENDM
 
-.MACRO MOVE_TO ;macro para mover el cursor del LCD
-	LDI R20, @0 ;cargo la posicion a la que me quiero mover
-	ORI R20, MOVE_DDRAM ;agrego el bit MSB = 1 para el comando
-	CALL WRITE_4BITS_INSTRUCTION ;llamo a mandar instruccion
-.ENDM
+
 
 
 
@@ -234,18 +235,9 @@ CLEAN:
 	DELAY 85, 255 ; espero
 	RET
 
-PUSH_EVERYTHING:
-	PUSH R16
-	PUSH R17
-	PUSH R18
-	PUSH R20
-	PUSH R21
-	RET
-
-POP_EVERYTHING:
-	POP R21
-	POP R20
-	POP R19
-	POP R18
-	POP R16
+TEXTO_LCD:
+	LDI R23, LOW(TEX_TENSION<<1)
+	LDI R24, HIGH(TEX_TENSION<<1)
+	LDI R25, INICIO_LCD
+	WRITE_FROM_ROM
 	RET
